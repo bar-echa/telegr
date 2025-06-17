@@ -1,109 +1,74 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="om">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
-    <link rel="stylesheet" href="credit.css">
+  <meta charset="UTF-8" />
+  <title>Oromo Kids Learning</title>
+  <style>
+    body {
+      background: #fffae6;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: #4a2c2a;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      color: #d2691e;
+    }
+    p {
+      font-size: 1.5em;
+      margin-bottom: 1.5em;
+    }
+    button {
+      background-color: #f4a261;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #e76f51;
+      color: white;
+    }
+    .image-container {
+      margin-top: 2em;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #f4a261;
+    }
+  </style>
 </head>
 <body>
-    <div class="setting">
-        <h1>Setting</h1>
-        <!-- Add id to the Account paragraph for targeting -->
-        <p id="accountTitle" class="account-title">Register Form </p>
-        <p id="paymentTitle" class="payment-title">Payment</p> <!-- Add id here -->
-    </div>
+  <h1>Baga Nagaan Dhuftan! 👋</h1>
+  <p>Afaan Oromo baradhaa, weellisaa, fi bashannanaa!</p>
 
-    <!-- This is the container that should be hidden or shown when "Payment" is clicked -->
-     <div class="account-content" id="accountcontent">
-        <div class="detail">
-            <h1>
-                My Details
-            </h1>
-            <h2>
-                Personal Information
-            </h2>
-            <strong>that what i tried</strong>
-        </div>
-        <div class="topic">
-            <p>
-                Assertive utilize adaptive customer<br> service for future-proof platforms.<br>
-                Completely drive Optimal markets.
-            </p>
-            <div class="input">
-                <div>
-                    <h3>First Name</h3>
-                    <input type="text" required >
-                </div>
-                <div>
-                  <h3>second Name</h3> 
-                    <input type="text" required >
-                </div>
-                <div>
-                   <h3>birth date</h3>
-                    <input type="date" required>
-                </div>
-                <div>
-                    
-                    <h3>phone number</h3>
-                    <input type="text" required >
-                    <p style="color: red;font-family: Georgia, 'Times New Roman', Times, serif;"
-                    >Must Be Nine Digit!</p>
-                </div>
-                <button class="sign">Sign up</button>
-            </div>
-        </div>
-     </div>
-    <div class="payment-content" id="paymentContent">
-        <div class="saved">
-            <h1>Saved Cards:</h1>
-            <input type="password" placeholder="**** **** ****"> 
-            <input type="password" placeholder="**** **** ****">
-        </div>
+  <button id="playStoryBtn">Dhaggeeffadhaa: Seenaa Koo (Play Story)</button>
 
-        <div class="New">
-            <h1>Add New Card:</h1>
-            <input type="text" placeholder="Card Holder Name" required>
-            <div class="new2">
-                <input type="text" id="1" placeholder="Card Number" required>
-                <input type="number" id="2" placeholder="exp.date" required>
-                <input type="password" id="3" placeholder="cvv" required>
-            </div>
-            <button class="button">Add Card</button>
-        </div>
-    </div>
+  <audio id="storyAudio" src="story1.mp3.ogg"></audio>
 
-    <script>
-        const paymentTitle = document.getElementById('paymentTitle');
-const accountTitle = document.getElementById('accountTitle');
-const paymentContent = document.getElementById('paymentContent');
-const accountcontent = document.getElementById('accountcontent');
+  <div class="image-container">
+    <img src="https://i.imgur.com/3b4TlOJ.png" alt="Happy Oromo Kids" />
+  </div>
 
-// Initially hide both content sections
-paymentContent.style.display = 'none';
-accountcontent.style.display = 'none';
+  <script>
+    const playBtn = document.getElementById('playStoryBtn');
+    const storyAudio = document.getElementById('storyAudio');
 
-// Toggle visibility and underline when Payment is clicked
-paymentTitle.addEventListener('click', function() {
-    // Show Payment content and hide Account content
-    paymentContent.style.display = 'block';
-    accountcontent.style.display = 'none';
-
-    // Add red underline to Payment and remove from Account
-    paymentTitle.classList.add('underline');
-    accountTitle.classList.remove('underline');
-});
-
-// Toggle visibility and underline when Account is clicked
-accountTitle.addEventListener('click', function() {
-    // Show Account content and hide Payment content
-    accountcontent.style.display = 'block';
-    paymentContent.style.display = 'none';
-
-    // Add red underline to Account and remove from Payment
-    accountTitle.classList.add('underline');
-    paymentTitle.classList.remove('underline');
-});
-
-    </script>
+    playBtn.addEventListener('click', () => {
+      if (storyAudio.paused) {
+        storyAudio.play();
+        playBtn.textContent = "Dhaamsa Itti Fufi (Pause Story)";
+      } else {
+        storyAudio.pause();
+        playBtn.textContent = "Dhaggeeffadhaa: Seenaa Koo (Play Story)";
+      }
+    });
+  </script>
 </body>
 </html>
